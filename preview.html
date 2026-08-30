@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantis The Royal – Guest Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background: #050d18;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 16px;
+        }
+
+        /* ─── Phone Frame ─── */
+        .phone {
+            width: 393px;
+            height: 852px;
+            background: #08111d;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 0 10px #0f1f30, 0 0 0 13px #1a3048;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ─── Status Bar ─── */
+        .status-bar {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 48px;
+            padding: 14px 28px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            z-index: 999;
+        }
+        .status-icons { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+
+        /* ─── Screens ─── */
+        .screen-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        .screen {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .screen::-webkit-scrollbar { display: none; }
+        .screen.active { display: flex; }
+
+        /* ─── BG Image + Overlay ─── */
+        .bg-img {
+            position: absolute;
+            inset: 0;
+            background-image: url('app/src/main/res/drawable/atlantis_background.png');
+            background-size: cover;
+            background-position: center top;
+            z-index: 0;
+        }
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(5,13,24,0.55) 0%,
+                rgba(5,13,24,0.35) 30%,
+                rgba(5,13,24,0.75) 60%,
+                rgba(5,13,24,0.97) 100%
+            );
+            z-index: 1;
+        }
+        .screen-body {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 52px 22px 24px;
+            min-height: 100%;
+        }
+
+        /* ─── Language Selector Pill ─── */
+        .lang-row {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+        }
+        .lang-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(10,25,40,0.7);
+            border: 1.5px solid rgba(255,255,255,0.3);
+            border-radius: 100px;
+            padding: 7px 14px 7px 10px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .lang-btn:hover { border-color: #C8A84B; }
+        .lang-flag { font-size: 18px; line-height: 1; }
+        .lang-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .lang-arrow {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            margin-left: 2px;
+        }
+
+        /* ─── Logo Section ─── */
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 14px;
+        }
+        .logo-bracket {
+            width: 120px;
+            height: 120px;
+            border: 3px solid #fff;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(200,168,75,0.22);
+        }
+        /* Corner bracket effect */
+        .logo-bracket::before,
+        .logo-bracket::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: #C8A84B;
+            border-style: solid;
+        }
+        .logo-bracket::before {
+            top: -3px; left: -3px;
+            border-width: 3.5px 0 0 3.5px;
+            border-radius: 3px 0 0 0;
+        }
+        .logo-bracket::after {
+            bottom: -3px; right: -3px;
+            border-width: 0 3.5px 3.5px 0;
+            border-radius: 0 0 3px 0;
+        }
+        .logo-inner-img {
+            width: 78px;
+            height: 78px;
+            object-fit: contain;
+        }
+        .brand-atlantis {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            color: #fff;
+            margin-top: 12px;
+        }
+        .brand-royal {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.85);
+            margin-top: 2px;
+        }
+
+        /* ─── Welcome Text ─── */
+        .welcome-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #C8A84B;
+            text-align: center;
+            margin-top: 16px;
+            line-height: 1;
+        }
+        .welcome-sub {
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
+            text-align: center;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        /* ─── Check-in Card ─── */
+        .checkin-card {
+            margin-top: 28px;
+            background: rgba(8,18,30,0.88);
+            border: 1.5px solid #C8A84B;
+            border-radius: 20px;
+            padding: 20px 20px 20px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .checkin-card:hover {
+            transform: translateY(-2px);
+            background: rgba(15,30,50,0.95);
+        }
+        .bell-wrap {
+            width: 54px;
+            height: 54px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .bell-wrap svg { width: 48px; height: 48px; }
+        .checkin-text { flex: 1; }
+        .checkin-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .checkin-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+        .arrow-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(200,168,75,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .arrow-circle svg { width: 18px; height: 18px; fill: #C8A84B; }
+
+        /* ─── 4 Features Bottom ─── */
+        .features-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: auto;
+            padding: 28px 4px 0;
+        }
+        .feat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 72px;
+        }
+        .feat-icon { width: 42px; height: 42px; }
+        .feat-icon svg { width: 42px; height: 42px; }
+        .feat-divider {
+            width: 1px;
+            background: rgba(200,168,75,0.25);
+            align-self: stretch;
+            margin-top: 4px;
+        }
+        .feat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* ─── Footer Tagline ─── */
+        .tagline-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .tagline-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(200,168,75,0.4);
+        }
+        .tagline-diamond { color: #C8A84B; font-size: 10px; }
+        .tagline-text {
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            margin-top: 12px;
+        }
+        .tagline-thanks {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #C8A84B;
+            margin-top: 4px;
+        }
+
+        /* ─── CHECKIN SCREEN ─── */
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(8,18,30,0.7);
+            border: 1px solid rgba(200,168,75,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .back-btn svg { width: 20px; height: 20px; fill: #fff; }
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .small-logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .small-bracket {
+            width: 44px;
+            height: 44px;
+            border: 2.5px solid #fff;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .small-bracket::before, .small-bracket::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-color: #C8A84B;
+            border-style: solid;
+        }
+        .small-bracket::before { top:-2px; left:-2px; border-width:2.5px 0 0 2.5px; border-radius:2px 0 0 0; }
+        .small-bracket::after  { bottom:-2px; right:-2px; border-width:0 2.5px 2.5px 0; border-radius:0 0 2px 0; }
+        .small-bracket img { width: 26px; height: 26px; object-fit: contain; }
+
+        .glass-card {
+            background: rgba(8,18,30,0.88);
+            border: 1px solid rgba(200,168,75,0.35);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 14px;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #C8A84B, #E8C86A);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .icon-circle svg { width: 22px; height: 22px; fill: #06121c; }
+        .field-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #C8A84B;
+            margin-top: 18px;
+        }
+        .input-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .country-btn {
+            background: rgba(0,0,0,0.45);
+            border: 1px solid rgba(200,168,75,0.4);
+            border-radius: 12px;
+            padding: 0 14px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #C8A84B;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .country-btn:hover { border-color: #C8A84B; }
+        .phone-input {
+            flex: 1;
+            height: 48px;
+            background: rgba(0,0,0,0.45);
+            border: 1px solid rgba(200,168,75,0.4);
+            border-radius: 12px;
+            padding: 0 16px;
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+        .phone-input:focus { border-color: #C8A84B; }
+        .whatsapp-banner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+            background: rgba(37,211,102,0.1);
+            border: 1px solid rgba(37,211,102,0.3);
+            border-radius: 12px;
+            padding: 12px;
+        }
+        .whatsapp-icon { font-size: 26px; flex-shrink: 0; }
+        .gold-btn {
+            width: 100%;
+            height: 50px;
+            margin-top: 18px;
+            background: linear-gradient(90deg, #C8A84B, #E8C86A);
+            border: none;
+            border-radius: 14px;
+            color: #06121c;
+            font-size: 15px;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            transition: opacity 0.2s;
+        }
+        .gold-btn:hover { opacity: 0.9; }
+
+        /* OTP boxes */
+        .otp-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .otp-box {
+            flex: 1;
+            height: 52px;
+            background: rgba(0,0,0,0.45);
+            border: 1.5px solid rgba(200,168,75,0.4);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #C8A84B;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+        .otp-box:focus { border-color: #C8A84B; background: rgba(9,36,58,0.6); }
+
+        /* ─── DASHBOARD ─── */
+        .dash-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 260px;
+            background-image: url('app/src/main/res/drawable/atlantis_background.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+        .dash-bg-fade {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 260px;
+            background: linear-gradient(180deg, rgba(8,18,30,0.4) 0%, rgba(8,18,30,1) 100%);
+            z-index: 1;
+        }
+        .dash-body {
+            position: relative;
+            z-index: 2;
+            background: #08121e;
+            padding: 50px 18px 80px;
+            flex: 1;
+        }
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dash-brand { display: flex; align-items: center; gap: 10px; }
+        .dash-logo { width: 44px; height: 44px; object-fit: contain; }
+        .brand-text-dash .line1 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #C8A84B;
+            letter-spacing: 3px;
+        }
+        .brand-text-dash .line2 {
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 3px;
+        }
+        .dash-actions { display: flex; gap: 10px; align-items: center; }
+        .notif-btn {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(200,168,75,0.3);
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; position: relative;
+        }
+        .notif-btn svg { width: 20px; height: 20px; fill: #C8A84B; }
+        .notif-dot {
+            position: absolute; top: 4px; right: 4px;
+            width: 16px; height: 16px;
+            background: #ff3b30; color: #fff;
+            border-radius: 50%; font-size: 9px; font-weight: 700;
+            display: flex; justify-content: center; align-items: center;
+            border: 1.5px solid #08121e;
+        }
+        .avatar { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #C8A84B; object-fit: cover; cursor: pointer; }
+
+        /* booking cards */
+        .booking-grid { display: flex; gap: 10px; margin-top: 16px; }
+        .booking-card {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(200,168,75,0.2);
+            border-radius: 16px; padding: 14px;
+        }
+        .b-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.4); display: flex; justify-content: center; align-items: center; }
+        .b-icon svg { width: 16px; height: 16px; fill: #C8A84B; }
+        .b-val { font-size: 18px; font-weight: 800; color: #C8A84B; margin-top: 10px; }
+        .b-sub { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+        /* special */
+        .special-card {
+            margin-top: 14px;
+            background: linear-gradient(135deg, #18100a 0%, #221605 50%, #0d1a2e 100%);
+            border: 1.5px solid #C8A84B;
+            border-radius: 18px; padding: 16px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .badge-pill {
+            display: inline-block;
+            background: rgba(200,168,75,0.15);
+            border: 1px solid #C8A84B;
+            border-radius: 100px;
+            font-size: 10px; font-weight: 800; color: #C8A84B;
+            padding: 3px 10px;
+        }
+
+        /* services grid */
+        .srv-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 12px; }
+        .srv-item {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(200,168,75,0.2);
+            border-radius: 16px; padding: 14px;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            cursor: pointer; transition: border-color 0.2s, transform 0.2s;
+        }
+        .srv-item:hover { border-color: #C8A84B; transform: translateY(-2px); }
+        .srv-item svg { width: 30px; height: 30px; fill: #C8A84B; }
+        .srv-label { font-size: 13px; font-weight: 700; color: #fff; margin-top: 8px; }
+
+        /* AI Card */
+        .ai-card {
+            margin-top: 14px;
+            background: linear-gradient(135deg, rgba(30,10,60,0.85) 0%, rgba(9,36,58,0.85) 100%);
+            border: 1.5px solid rgba(138,61,255,0.5);
+            border-radius: 18px; padding: 16px;
+            cursor: pointer;
+        }
+        .ai-row { display: flex; align-items: center; gap: 12px; }
+        .ai-icon-circle {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(138,61,255,0.2);
+            border: 1px solid rgba(138,61,255,0.5);
+            display: flex; justify-content: center; align-items: center;
+        }
+        .ai-icon-circle svg { width: 22px; height: 22px; fill: #a96eff; }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 72px;
+            background: #060f1a;
+            border-top: 1px solid rgba(200,168,75,0.15);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 900;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
+            font-size: 10px; color: #556070; cursor: pointer;
+            transition: color 0.2s;
+        }
+        .nav-item.active { color: #C8A84B; font-weight: 700; }
+        .nav-item svg { width: 22px; height: 22px; fill: currentColor; }
+
+        /* ─── Modal Overlay ─── */
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(2,8,18,0.85);
+            backdrop-filter: blur(6px);
+            z-index: 800;
+            display: none;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal-sheet {
+            background: #0c1e30;
+            border-radius: 24px 24px 0 0;
+            border-top: 2px solid rgba(200,168,75,0.4);
+            padding: 20px;
+            max-height: 75%;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-handle {
+            width: 40px; height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 2px;
+            margin: 0 auto 16px;
+        }
+        .modal-head {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 14px;
+        }
+        .modal-head-title { font-size: 17px; font-weight: 800; color: #C8A84B; }
+        .modal-close {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; font-size: 16px; color: rgba(255,255,255,0.6);
+        }
+        .modal-list {
+            overflow-y: auto; flex: 1;
+            display: flex; flex-direction: column; gap: 6px;
+        }
+        .modal-list::-webkit-scrollbar { display: none; }
+        .modal-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 13px 16px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85);
+            cursor: pointer; transition: all 0.15s;
+        }
+        .modal-item:hover, .modal-item.selected {
+            border-color: #C8A84B;
+            background: rgba(200,168,75,0.12);
+            color: #C8A84B;
+        }
+        .modal-item .check { color: #C8A84B; font-size: 16px; }
+        .modal-item-right { display: flex; align-items: center; gap: 8px; }
+        .code-chip {
+            background: rgba(200,168,75,0.15);
+            border: 1px solid rgba(200,168,75,0.3);
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #C8A84B;
+        }
+    </style>
+</head>
+<body>
+<div class="phone" id="phoneFrame">
+
+    <!-- ── Status Bar ── -->
+    <div class="status-bar">
+        <span>9:41</span>
+        <div class="status-icons">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="white"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="2.5" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 20 15" fill="white"><path d="M10 3C13.5 3 16.6 4.4 19 6.7L17.3 8.4C15.3 6.5 12.8 5.3 10 5.3S4.7 6.5 2.7 8.4L1 6.7C3.4 4.4 6.5 3 10 3z"/><path d="M10 7C12.4 7 14.6 7.9 16.3 9.5L14.6 11.2C13.3 9.9 11.8 9.1 10 9.1S6.7 9.9 5.4 11.2L3.7 9.5C5.4 7.9 7.6 7 10 7z"/><circle cx="10" cy="14" r="1.5"/></svg>
+            <svg width="24" height="12" viewBox="0 0 24 12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" stroke="white" stroke-width="1.5" fill="none"/><rect x="1.5" y="2.5" width="15" height="7" rx="1" fill="white"/><rect x="21" y="3.5" width="2.5" height="5" rx="1" fill="white"/></svg>
+        </div>
+    </div>
+
+    <div class="screen-wrap">
+
+        <!-- ══════════════════════════════════
+             SCREEN 1: WELCOME
+        ══════════════════════════════════ -->
+        <div id="screen-welcome" class="screen active">
+            <div class="bg-img"></div>
+            <div class="bg-overlay"></div>
+            <div class="screen-body">
+
+                <!-- ① Language Row (top-right) -->
+                <div class="lang-row">
+                    <span class="lang-label">Select Language</span>
+                    <div class="lang-btn" onclick="openModal('modal-lang')">
+                        <span id="w-lang-flag" class="lang-flag">🇬🇧</span>
+                        <span id="w-lang-name" class="lang-name">English</span>
+                        <span class="lang-arrow">▾</span>
+                    </div>
+                </div>
+
+                <!-- ② LOGO — large, centred, NO brand text below -->
+                <div style="display:flex; flex-direction:column; align-items:center; margin-top:22px;">
+                    <img
+                        src="app/src/main/res/drawable/atlantis_logo.png"
+                        alt="Atlantis The Royal Logo"
+                        style="width:150px; height:150px; object-fit:contain;
+                               filter: drop-shadow(0 4px 20px rgba(200,168,75,0.35));">
+                </div>
+
+                <!-- ③ Welcome Heading -->
+                <div id="welcome-title" style="font-family:'Playfair Display',serif; font-size:54px; font-weight:700;
+                            color:#C8A84B; text-align:center; margin-top:16px; line-height:1;
+                            text-shadow:0 2px 20px rgba(200,168,75,0.25);">Welcome</div>
+                <div id="welcome-sub" style="font-size:14px; color:rgba(255,255,255,0.72); text-align:center;
+                            margin-top:8px; font-weight:400; letter-spacing:0.4px;">
+                    Your luxury stay begins here
+                </div>
+
+                <!-- ④ Check-in Card -->
+                <div class="checkin-card" onclick="navigate('screen-checkin')" style="margin-top:26px;">
+                    <div class="bell-wrap">
+                        <!-- Hotel service bell — matching reference image -->
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="13" r="5" stroke="#C8A84B" stroke-width="3"/>
+                            <line x1="32" y1="18" x2="32" y2="25" stroke="#C8A84B" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M13 47 C13 32 21 25 32 25 C43 25 51 32 51 47" stroke="#C8A84B" stroke-width="3" stroke-linecap="round" fill="none"/>
+                            <rect x="8" y="47" width="48" height="8" rx="4" stroke="#C8A84B" stroke-width="3" fill="none"/>
+                            <line x1="24" y1="55" x2="40" y2="55" stroke="#C8A84B" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="checkin-text">
+                        <div id="card-checkin-title" class="checkin-title">Check-in</div>
+                        <div id="card-checkin-desc" class="checkin-desc">Already have a booking?<br>Check-in and access your stay.</div>
+                    </div>
+                    <div class="arrow-circle">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                    </div>
+                </div>
+
+                <!-- ⑤ 4 Features — pinned to footer via margin-top:auto -->
+                <div class="features-row">
+                    <!-- Dining -->
+                    <div class="feat-item">
+                        <div class="feat-icon">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <ellipse cx="32" cy="48" rx="22" ry="4" stroke="#C8A84B" stroke-width="2.5"/>
+                                <path d="M10 44 Q10 28 32 28 Q54 28 54 44" stroke="#C8A84B" stroke-width="2.5" fill="none"/>
+                                <line x1="32" y1="28" x2="32" y2="24" stroke="#C8A84B" stroke-width="2.5" stroke-linecap="round"/>
+                                <ellipse cx="32" cy="22" rx="8" ry="3" stroke="#C8A84B" stroke-width="2.5"/>
+                            </svg>
+                        </div>
+                        <div id="feat-dining" class="feat-label">Delicious<br>Dining</div>
+                    </div>
+                    <div class="feat-divider"></div>
+                    <!-- Spa -->
+                    <div class="feat-item">
+                        <div class="feat-icon">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <path d="M32 52 C32 52 10 40 10 26 C10 18 20 14 26 20 C28 22 30 24 32 26 C34 24 36 22 38 20 C44 14 54 18 54 26 C54 40 32 52 32 52Z" stroke="#C8A84B" stroke-width="2.5"/>
+                                <path d="M32 26 L32 52" stroke="#C8A84B" stroke-width="2" stroke-dasharray="3 3"/>
+                            </svg>
+                        </div>
+                        <div id="feat-spa" class="feat-label">Spa &amp;<br>Wellness</div>
+                    </div>
+                    <div class="feat-divider"></div>
+                    <!-- Services -->
+                    <div class="feat-item">
+                        <div class="feat-icon">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <rect x="16" y="20" width="32" height="22" rx="3" stroke="#C8A84B" stroke-width="2.5"/>
+                                <line x1="10" y1="42" x2="54" y2="42" stroke="#C8A84B" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="32" y1="42" x2="32" y2="50" stroke="#C8A84B" stroke-width="2.5"/>
+                                <line x1="20" y1="50" x2="44" y2="50" stroke="#C8A84B" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="24" y1="20" x2="24" y2="14" stroke="#C8A84B" stroke-width="2.5" stroke-linecap="round"/>
+                                <line x1="40" y1="20" x2="40" y2="14" stroke="#C8A84B" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="24" cy="13" r="2" fill="#C8A84B"/>
+                                <circle cx="40" cy="13" r="2" fill="#C8A84B"/>
+                            </svg>
+                        </div>
+                        <div id="feat-services" class="feat-label">World Class<br>Services</div>
+                    </div>
+                    <div class="feat-divider"></div>
+                    <!-- Experiences -->
+                    <div class="feat-item">
+                        <div class="feat-icon">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <polygon points="32,10 37,25 53,25 40,34 45,50 32,41 19,50 24,34 11,25 27,25" stroke="#C8A84B" stroke-width="2.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div id="feat-exp" class="feat-label">Memorable<br>Experiences</div>
+                    </div>
+                </div>
+
+                <!-- ⑥ Footer tagline -->
+                <div class="tagline-divider">
+                    <div class="tagline-line"></div>
+                    <div class="tagline-diamond">◆</div>
+                    <div class="tagline-line"></div>
+                </div>
+                <div id="tagline-text" class="tagline-text">We're here to make your stay exceptional.</div>
+                <div id="tagline-thanks" class="tagline-thanks">Thank You!</div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             SCREEN 2: CHECK-IN
+        ══════════════════════════════════ -->
+        <div id="screen-checkin" class="screen">
+            <div class="bg-img"></div>
+            <div class="bg-overlay"></div>
+            <div class="screen-body">
+                <!-- Top Row -->
+                <div class="top-row">
+                    <div class="back-btn" onclick="navigate('screen-welcome')">
+                        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    </div>
+                    <div class="lang-btn" onclick="openModal('modal-lang')">
+                        <span id="c-lang-flag" class="lang-flag">🇬🇧</span>
+                        <span id="c-lang-name" class="lang-name">English</span>
+                        <span class="lang-arrow">▾</span>
+                    </div>
+                </div>
+
+                <!-- Small Logo -->
+                <div class="small-logo-section">
+                    <div class="small-bracket">
+                        <img src="app/src/main/res/drawable/atlantis_logo.png" alt="Logo">
+                    </div>
+                    <div style="font-size:16px; font-weight:800; letter-spacing:4px; color:#fff; margin-top:8px;">ATLANTIS</div>
+                    <div style="font-size:11px; letter-spacing:4px; color:rgba(255,255,255,0.75); margin-top:2px;">THE ROYAL</div>
+                </div>
+
+                <h2 style="font-size:28px; font-weight:800; text-align:center; margin-top:10px; color:#fff;">Check-in</h2>
+                <p style="font-size:13px; text-align:center; color:rgba(255,255,255,0.6); margin-top:4px;">Let's get you checked in</p>
+
+                <!-- STEP 1: Phone -->
+                <div id="step-phone" class="glass-card">
+                    <div class="card-header">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-weight:700; font-size:15px; color:#fff;">Verify Your Mobile</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.5); margin-top:2px;">We'll send a WhatsApp code</div>
+                        </div>
+                    </div>
+                    <div class="field-label">Mobile Number</div>
+                    <div class="input-row">
+                        <div class="country-btn" id="country-code-display" onclick="openModal('modal-country')">
+                            <span id="sel-flag">🇦🇪</span>
+                            <span id="sel-code">+971</span>
+                            <span style="font-size:10px; color:rgba(200,168,75,0.7);">▾</span>
+                        </div>
+                        <input class="phone-input" id="phone-input" type="tel" placeholder="50 123 4567" value="501234567">
+                    </div>
+                    <div class="whatsapp-banner">
+                        <span class="whatsapp-icon">💬</span>
+                        <div>
+                            <div style="font-size:13px; font-weight:700; color:#25D366;">WhatsApp Verification</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.5); margin-top:2px;">Code sent to your WhatsApp number</div>
+                        </div>
+                    </div>
+                    <button class="gold-btn" onclick="doSendOtp()">Send Code on WhatsApp</button>
+                </div>
+
+                <!-- STEP 2: OTP -->
+                <div id="step-otp" class="glass-card" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <div style="font-size:16px; font-weight:700; color:#fff;">Enter OTP</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.5); margin-top:3px;">Code sent to: <span id="otp-phone-display" style="color:#C8A84B; font-weight:700;">+971 501234567</span></div>
+                        </div>
+                        <span style="font-size:12px; font-weight:700; color:#C8A84B; cursor:pointer;" onclick="showPhoneStep()">Change</span>
+                    </div>
+                    <div class="otp-row">
+                        <input type="text" maxlength="1" class="otp-box" id="otp1" value="1">
+                        <input type="text" maxlength="1" class="otp-box" id="otp2" value="2">
+                        <input type="text" maxlength="1" class="otp-box" id="otp3" value="3">
+                        <input type="text" maxlength="1" class="otp-box" id="otp4" value="4">
+                        <input type="text" maxlength="1" class="otp-box" id="otp5" value="5">
+                        <input type="text" maxlength="1" class="otp-box" id="otp6" value="6">
+                    </div>
+                    <div style="text-align:center; font-size:12px; color:rgba(255,255,255,0.45); margin-top:10px;">Demo code: <b style="color:#C8A84B;">123456</b></div>
+                    <button class="gold-btn" onclick="doVerifyOtp()">Verify &amp; Check-in</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             SCREEN 3: DASHBOARD
+        ══════════════════════════════════ -->
+        <div id="screen-dashboard" class="screen">
+            <div class="dash-bg"></div>
+            <div class="dash-bg-fade"></div>
+            <div class="dash-body">
+                <div class="dash-header">
+                    <div class="dash-brand">
+                        <img src="app/src/main/res/drawable/atlantis_logo.png" class="dash-logo" alt="Logo">
+                        <div class="brand-text-dash">
+                            <div class="line1">ATLANTIS</div>
+                            <div class="line2">THE ROYAL</div>
+                        </div>
+                    </div>
+                    <div class="dash-actions">
+                        <div class="notif-btn" onclick="alert('3 new notifications:\n1. Laurent-Perrier Champagne delivered\n2. Spa appointment confirmed\n3. Pool access activated')">
+                            <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                            <div class="notif-dot">3</div>
+                        </div>
+                        <img src="app/src/main/res/drawable/guest_avatar.jpg" class="avatar" alt="Guest" onclick="alert('Profile: Mr. Aman Singh\nRoom 305 – Deluxe Ocean View\nCheck-in: Jul 26, 2026')">
+                    </div>
+                </div>
+
+                <div style="margin-top:14px;">
+                    <div style="font-size:14px; color:rgba(255,255,255,0.5);">Welcome back,</div>
+                    <div style="font-size:26px; font-weight:800; color:#fff; margin-top:2px;">Mr. Aman Singh 👋</div>
+                    <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px;">Delighted to have you at Atlantis The Royal</div>
+                </div>
+
+                <div class="booking-grid">
+                    <div class="booking-card">
+                        <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></div>
+                        <div class="b-val">305</div>
+                        <div class="b-sub">Ocean View Suite</div>
+                    </div>
+                    <div class="booking-card">
+                        <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg></div>
+                        <div class="b-val">Jul 26</div>
+                        <div class="b-sub">Check-in Date</div>
+                    </div>
+                    <div class="booking-card">
+                        <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5S6.81 19 11.5 19h.5v3c4.86-2.34 8-7 8-11.5C20 5.81 16.19 2 11.5 2zm1 14.5h-2v-2h2v2zm0-4h-2c0-3.25 3-3 3-5 0-1.1-.9-2-2-2s-2 .9-2 2h-2c0-2.21 1.79-4 4-4s4 1.79 4 4c0 2.5-3 2.75-3 5z"/></svg></div>
+                        <div class="b-val">Jul 30</div>
+                        <div class="b-sub">Check-out Date</div>
+                    </div>
+                </div>
+
+                <!-- Today Special -->
+                <div class="special-card">
+                    <div>
+                        <span class="badge-pill">TODAY'S SPECIAL</span>
+                        <div style="font-size:28px; font-weight:800; color:#C8A84B; margin-top:6px;">20% OFF</div>
+                        <div style="font-size:14px; font-weight:700; color:#fff;">On Lunch &amp; Dinner</div>
+                        <div style="font-size:11px; color:rgba(255,255,255,0.45); margin-top:2px;">Valid till 11:00 PM tonight</div>
+                    </div>
+                    <button class="gold-btn" style="width:auto; padding:0 20px; height:42px;" onclick="alert('20% discount applied to your Room 305 dining bill!')">Order Now</button>
+                </div>
+
+                <!-- Services -->
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+                    <span style="font-size:17px; font-weight:800; color:#fff;">Explore Services</span>
+                    <span style="font-size:12px; font-weight:700; color:#C8A84B;">8 Available</span>
+                </div>
+                <div class="srv-grid">
+                    <div class="srv-item" onclick="alert('In-Room Dining menu opened for Room 305')"><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v11h2v5h2V2c-2.21 0-4 1.79-4 4z"/></svg><div class="srv-label">Order Food</div></div>
+                    <div class="srv-item" onclick="alert('Concierge service request sent!')"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg><div class="srv-label">Hotel Services</div></div>
+                    <div class="srv-item" onclick="alert('Awaken Spa – booking slots available!')"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.41L5.65 21c1-1.5 2.56-3.07 4.35-4C12 18 12.27 18 13 18c1.5 0 3.5-1 4.5-2.5 1.26-1.5 2-4 .5-7.5z"/></svg><div class="srv-label">Spa &amp; Wellness</div></div>
+                    <div class="srv-item" onclick="alert('Housekeeping dispatched to Room 305!')"><svg viewBox="0 0 24 24"><path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z"/></svg><div class="srv-label">Housekeeping</div></div>
+                    <div class="srv-item" onclick="alert('Connected to Atlantis 1Gbps Royal WiFi!')"><svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg><div class="srv-label">WiFi Connect</div></div>
+                    <div class="srv-item" onclick="alert('Rolls Royce Chauffeur booked for pick-up!')"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg><div class="srv-label">Transport</div></div>
+                    <div class="srv-item" onclick="alert('Cloud 22 & Aquaventure Pass activated!')"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><div class="srv-label">Explore Atlantis</div></div>
+                    <div class="srv-item" onclick="alert('Thank you for your 5-star rating! 🌟')"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="srv-label">Rate Experience</div></div>
+                </div>
+
+                <!-- AI Concierge -->
+                <div class="ai-card" onclick="alert('AI Concierge: Hello Mr. Aman Singh!\nHow can I assist you today?\n• Room Service\n• Reservations\n• Local Recommendations')">
+                    <div class="ai-row">
+                        <div class="ai-icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5z"/></svg>
+                        </div>
+                        <div>
+                            <div style="font-size:15px; font-weight:800; color:#fff;">Atlantis AI Concierge</div>
+                            <div style="font-size:12px; color:#a96eff; margin-top:2px;">Your 24/7 personal assistant</div>
+                        </div>
+                    </div>
+                    <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:10px;">Ask anything. Request anything. Anytime.</div>
+                    <button class="gold-btn" style="background:transparent; border:1.5px solid #C8A84B; color:#C8A84B; margin-top:12px; height:42px;">Ask Now</button>
+                </div>
+            </div>
+
+            <!-- Bottom Nav inside dashboard -->
+            <div class="bottom-nav">
+                <div class="nav-item active" onclick="navigate('screen-dashboard')"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span>Home</span></div>
+                <div class="nav-item" onclick="alert('My Requests: 2 in-progress for Room 305')"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z"/></svg><span>Requests</span></div>
+                <div class="nav-item" onclick="alert('AI Concierge is online!')"><svg viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5z"/></svg><span>AI</span></div>
+                <div class="nav-item" onclick="alert('Orders: #8921 on the way to Room 305!')"><svg viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg><span>Orders</span></div>
+                <div class="nav-item" onclick="navigate('screen-welcome')"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><span>Profile</span></div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             MODAL: LANGUAGE
+        ══════════════════════════════════ -->
+        <div id="modal-lang" class="modal-overlay" onclick="overlayClose(event,'modal-lang')">
+            <div class="modal-sheet">
+                <div class="modal-handle"></div>
+                <div class="modal-head">
+                    <span class="modal-head-title">Select Language</span>
+                    <div class="modal-close" onclick="closeModal('modal-lang')">✕</div>
+                </div>
+                <div class="modal-list" id="lang-list">
+                    <!-- Built by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════
+             MODAL: COUNTRY CODE
+        ══════════════════════════════════ -->
+        <div id="modal-country" class="modal-overlay" onclick="overlayClose(event,'modal-country')">
+            <div class="modal-sheet">
+                <div class="modal-handle"></div>
+                <div class="modal-head">
+                    <span class="modal-head-title">Select Country Code</span>
+                    <div class="modal-close" onclick="closeModal('modal-country')">✕</div>
+                </div>
+                <div class="modal-list" id="country-list">
+                    <!-- Built by JS -->
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.screen-wrap -->
+</div><!-- /.phone -->
+
+<script>
+// ─── DATA ───────────────────────────────────────────────
+const LANGUAGES = [
+    { flag: '🇬🇧', name: 'English',            code: 'en' },
+    { flag: '🇳🇵', name: 'नेपाली (Nepali)',    code: 'ne' },
+    { flag: '🇸🇦', name: 'العربية (Arabic)',    code: 'ar' },
+    { flag: '🇫🇷', name: 'Français (French)',   code: 'fr' },
+    { flag: '🇷🇺', name: 'Русский (Russian)',   code: 'ru' },
+    { flag: '🇨🇳', name: '中文 (Mandarin)',      code: 'zh' },
+    { flag: '🇩🇪', name: 'Deutsch (German)',    code: 'de' },
+    { flag: '🇪🇸', name: 'Español (Spanish)',   code: 'es' },
+    { flag: '🇮🇹', name: 'Italiano (Italian)',  code: 'it' },
+    { flag: '🇯🇵', name: '日本語 (Japanese)',    code: 'ja' },
+    { flag: '🇰🇷', name: '한국어 (Korean)',      code: 'ko' },
+    { flag: '🇹🇷', name: 'Türkçe (Turkish)',   code: 'tr' },
+    { flag: '🇮🇳', name: 'हिन्दी (Hindi)',       code: 'hi' },
+    { flag: '🇵🇹', name: 'Português (Portuguese)', code: 'pt' },
+    { flag: '🇳🇱', name: 'Nederlands (Dutch)',  code: 'nl' },
+    { flag: '🇵🇭', name: 'Tagalog (Filipino)', code: 'tl' },
+    { flag: '🇻🇳', name: 'Tiếng Việt (Vietnamese)', code: 'vi' },
+    { flag: '🇹🇭', name: 'ไทย (Thai)',          code: 'th' },
+    { flag: '🇵🇰', name: 'اردو (Urdu)',          code: 'ur' },
+    { flag: '🇧🇩', name: 'বাংলা (Bengali)',       code: 'bn' }
+];
+
+const COUNTRIES = [
+    { flag: '🇳🇵', name: 'Nepal',                 dial: '+977' },
+    { flag: '🇦🇪', name: 'United Arab Emirates', dial: '+971' },
+    { flag: '🇸🇦', name: 'Saudi Arabia',          dial: '+966' },
+    { flag: '🇬🇧', name: 'United Kingdom',        dial: '+44'  },
+    { flag: '🇺🇸', name: 'United States',         dial: '+1'   },
+    { flag: '🇮🇳', name: 'India',                  dial: '+91'  },
+    { flag: '🇷🇺', name: 'Russia',                 dial: '+7'   },
+    { flag: '🇨🇳', name: 'China',                  dial: '+86'  },
+    { flag: '🇩🇪', name: 'Germany',               dial: '+49'  },
+    { flag: '🇫🇷', name: 'France',                dial: '+33'  },
+    { flag: '🇪🇸', name: 'Spain',                 dial: '+34'  },
+    { flag: '🇮🇹', name: 'Italy',                 dial: '+39'  },
+    { flag: '🇯🇵', name: 'Japan',                 dial: '+81'  },
+    { flag: '🇰🇷', name: 'South Korea',           dial: '+82'  },
+    { flag: '🇹🇷', name: 'Turkey',                dial: '+90'  },
+    { flag: '🇳🇱', name: 'Netherlands',           dial: '+31'  },
+    { flag: '🇵🇹', name: 'Portugal',              dial: '+351' },
+    { flag: '🇧🇷', name: 'Brazil',                dial: '+55'  },
+    { flag: '🇪🇬', name: 'Egypt',                 dial: '+20'  },
+    { flag: '🇶🇦', name: 'Qatar',                  dial: '+974' },
+    { flag: '🇰🇼', name: 'Kuwait',                 dial: '+965' },
+    { flag: '🇴🇲', name: 'Oman',                   dial: '+968' },
+    { flag: '🇧🇭', name: 'Bahrain',               dial: '+973' },
+    { flag: '🇨🇭', name: 'Switzerland',           dial: '+41'  },
+    { flag: '🇦🇺', name: 'Australia',             dial: '+61'  },
+    { flag: '🇸🇬', name: 'Singapore',             dial: '+65'  },
+    { flag: '🇵🇰', name: 'Pakistan',              dial: '+92'  },
+    { flag: '🇧🇩', name: 'Bangladesh',            dial: '+880' },
+    { flag: '🇵🇭', name: 'Philippines',           dial: '+63'  },
+    { flag: '🇮🇩', name: 'Indonesia',             dial: '+62'  },
+    { flag: '🇻🇳', name: 'Vietnam',               dial: '+84'  },
+    { flag: '🇹🇭', name: 'Thailand',              dial: '+66'  }
+];
+
+const TRANSLATIONS = {
+    en: {
+        welcomeTitle: "Welcome",
+        welcomeSub: "Your luxury stay begins here",
+        checkinTitle: "Check-in",
+        checkinDesc: "Already have a booking?<br>Check-in and access your stay.",
+        dining: "Delicious<br>Dining",
+        spa: "Spa &amp;<br>Wellness",
+        services: "World Class<br>Services",
+        exp: "Memorable<br>Experiences",
+        tagline: "We're here to make your stay exceptional.",
+        thanks: "Thank You!"
+    },
+    ne: {
+        welcomeTitle: "स्वागत छ",
+        welcomeSub: "तपाईंको विलासी बसाइ यहाँ सुरु हुन्छ",
+        checkinTitle: "चेक-इन",
+        checkinDesc: "पहिले नै बुकिंग छ?<br>चेक-इन गर्नुहोस्।",
+        dining: "स्वादिष्ट<br>भोजन",
+        spa: "स्पा र<br>वेलनेस",
+        services: "विश्वस्तरीय<br>सेवाहरू",
+        exp: "अविस्मरणीय<br>अनुभवहरू",
+        tagline: "हामी तपाईंको बसाइ उत्कृष्ट बनाउन यहाँ छौं।",
+        thanks: "धन्यवाद!"
+    },
+    ar: {
+        welcomeTitle: "أهلاً بك",
+        welcomeSub: "إقامتك الفاخرة تبدأ هنا",
+        checkinTitle: "تسجيل الوصول",
+        checkinDesc: "لديك حجز بالفعل؟<br>سجل وصولك الآن.",
+        dining: "عشاء<br>فاخر",
+        spa: "سبا<br>وعافية",
+        services: "خدمات<br>عالمية",
+        exp: "تجارب<br>لا تُنسى",
+        tagline: "نحن هنا لنجعل إقامتك استثنائية.",
+        thanks: "شكراً لك!"
+    },
+    fr: {
+        welcomeTitle: "Bienvenue",
+        welcomeSub: "Votre séjour de luxe commence ici",
+        checkinTitle: "Enregistrement",
+        checkinDesc: "Vous avez une réservation ?<br>Enregistrez-vous.",
+        dining: "Gastronomie<br>Exquise",
+        spa: "Spa &amp;<br>Bien-être",
+        services: "Services<br>d'Élite",
+        exp: "Expériences<br>Uniques",
+        tagline: "Nous sommes là pour rendre votre séjour exceptionnel.",
+        thanks: "Merci !"
+    },
+    ru: {
+        welcomeTitle: "Добро пожаловать",
+        welcomeSub: "Ваш роскошный отдых начинается здесь",
+        checkinTitle: "Регистрация",
+        checkinDesc: "Уже есть бронирование?<br>Зарегистрируйтесь.",
+        dining: "Изысканная<br>кухня",
+        spa: "Спа и<br>велнес",
+        services: "Мировой<br>сервис",
+        exp: "Незабываемые<br>впечатления",
+        tagline: "Мы здесь, чтобы сделать ваш отдых незабываемым.",
+        thanks: "Спасибо!"
+    },
+    zh: {
+        welcomeTitle: "欢迎光临",
+        welcomeSub: "您的奢华入住之旅由此开始",
+        checkinTitle: "办理入住",
+        checkinDesc: "已有预订？<br>请办理入住。",
+        dining: "美味<br>餐饮",
+        spa: "水疗与<br>康体",
+        services: "世界级<br>服务",
+        exp: "难忘<br>体验",
+        tagline: "我们将竭诚为您打造非凡的入住体验。",
+        thanks: "谢谢！"
+    },
+    de: {
+        welcomeTitle: "Willkommen",
+        welcomeSub: "Ihr Luxusaufenthalt beginnt hier",
+        checkinTitle: "Check-in",
+        checkinDesc: "Haben Sie bereits gebucht?<br>Checken Sie ein.",
+        dining: "Köstliche<br>Gastronomie",
+        spa: "Spa &amp;<br>Wellness",
+        services: "Weltklasse<br>Service",
+        exp: "Unvergessliche<br>Erlebnisse",
+        tagline: "Wir sind hier, um Ihren Aufenthalt außergewöhnlich zu machen.",
+        thanks: "Vielen Dank!"
+    },
+    es: {
+        welcomeTitle: "Bienvenido",
+        welcomeSub: "Su estancia de lujo comienza aquí",
+        checkinTitle: "Check-in",
+        checkinDesc: "¿Ya tiene reserva?<br>Inicie sesión.",
+        dining: "Gastronomía<br>Exquisita",
+        spa: "Spa y<br>Bienestar",
+        services: "Servicios de<br>Clase Mundial",
+        exp: "Experiencias<br>Memorables",
+        tagline: "Estamos aquí para hacer que su estancia sea excepcional.",
+        thanks: "¡Gracias!"
+    },
+    it: {
+        welcomeTitle: "Benvenuto",
+        welcomeSub: "Il tuo soggiorno di lusso inizia qui",
+        checkinTitle: "Check-in",
+        checkinDesc: "Hai già una prenotazione?<br>Fai il check-in.",
+        dining: "Cucina<br>Raffinata",
+        spa: "Spa &amp;<br>Benessere",
+        services: "Servizi di<br>Classe Mondiale",
+        exp: "Esperienze<br>Memorabili",
+        tagline: "Siamo qui per rendere il tuo soggiorno eccezionale.",
+        thanks: "Grazie!"
+    },
+    ja: {
+        welcomeTitle: "ようこそ",
+        welcomeSub: "ラグジュアリーな滞在がここから始まります",
+        checkinTitle: "チェックイン",
+        checkinDesc: "ご予約はお済みですか？<br>チェックインしてください。",
+        dining: "極上の<br>ダイニング",
+        spa: "スパ＆<br>ウェルネス",
+        services: "ワールドクラス<br>サービス",
+        exp: "思い出に残る<br>体験",
+        tagline: "お客様の滞在を特別なものにするために。",
+        thanks: "ありがとうございます！"
+    },
+    ko: {
+        welcomeTitle: "환영합니다",
+        welcomeSub: "럭셔리한 휴식이 여기서 시작됩니다",
+        checkinTitle: "체크인",
+        checkinDesc: "이미 예약하셨나요?<br>체크인하세요.",
+        dining: "파인<br>다이닝",
+        spa: "스파 &amp;<br>웰니스",
+        services: "월드 클래스<br>서비스",
+        exp: "잊지 못할<br>경험",
+        tagline: "특별한 휴식을 선사합니다.",
+        thanks: "감사합니다!"
+    },
+    tr: {
+        welcomeTitle: "Hoş Geldiniz",
+        welcomeSub: "Lüks konaklamanız burada başlıyor",
+        checkinTitle: "Giriş Yap",
+        checkinDesc: "Rezervasyonunuz var mı?<br>Giriş yapın.",
+        dining: "Leziz<br>Yemekler",
+        spa: "Spa &amp;<br>Yaşam",
+        services: "Dünya Standartlarında<br>Hizmet",
+        exp: "Unutulmaz<br>Deneyimler",
+        tagline: "Konaklamanızı olağanüstü kılmak için buradayız.",
+        thanks: "Teşekkür Ederiz!"
+    },
+    hi: {
+        welcomeTitle: "स्वागत है",
+        welcomeSub: "आपका लक्जरी प्रवास यहाँ शुरू होता है",
+        checkinTitle: "चेक-इन",
+        checkinDesc: "क्या आपकी बुकिंग है?<br>चेक-इन करें।",
+        dining: "स्वादिष्ट<br>भोजन",
+        spa: "स्पा और<br>वेलनेस",
+        services: "विश्वस्तरीय<br>सेवाएं",
+        exp: "अविस्मरणीय<br>अनुभव",
+        tagline: "हम आपके प्रवास को असाधारण बनाने के लिए यहाँ हैं।",
+        thanks: "धन्यवाद!"
+    }
+};
+
+let selLangIdx    = 0;
+let selCountryIdx = 0;
+
+// ─── INIT ────────────────────────────────────────────────
+(function init() {
+    buildLangList();
+    buildCountryList();
+    updateLangUI();
+    updateCountryUI();
+})();
+
+function buildLangList() {
+    const el = document.getElementById('lang-list');
+    el.innerHTML = '';
+    LANGUAGES.forEach((l, i) => {
+        const item = document.createElement('div');
+        item.className = 'modal-item' + (i === selLangIdx ? ' selected' : '');
+        item.innerHTML = `
+            <span>${l.flag} &nbsp;${l.name}</span>
+            <span class="check">${i === selLangIdx ? '✓' : ''}</span>`;
+        item.onclick = () => selectLanguage(i);
+        el.appendChild(item);
+    });
+}
+
+function buildCountryList() {
+    const el = document.getElementById('country-list');
+    el.innerHTML = '';
+    COUNTRIES.forEach((c, i) => {
+        const item = document.createElement('div');
+        item.className = 'modal-item' + (i === selCountryIdx ? ' selected' : '');
+        item.innerHTML = `
+            <span>${c.flag} &nbsp;${c.name}</span>
+            <div class="modal-item-right">
+                <span class="code-chip">${c.dial}</span>
+                <span class="check">${i === selCountryIdx ? '✓' : ''}</span>
+            </div>`;
+        item.onclick = () => selectCountry(i);
+        el.appendChild(item);
+    });
+}
+
+// ─── LANGUAGE SELECTION ──────────────────────────────────
+function selectLanguage(idx) {
+    selLangIdx = idx;
+    updateLangUI();
+    buildLangList();
+    closeModal('modal-lang');
+}
+
+function updateLangUI() {
+    const l = LANGUAGES[selLangIdx];
+    const code = l.code;
+    const t = TRANSLATIONS[code] || TRANSLATIONS.en;
+
+    // Update Header Pills
+    document.getElementById('w-lang-flag').textContent = l.flag;
+    document.getElementById('w-lang-name').textContent = l.name.split(' ')[0];
+    document.getElementById('c-lang-flag').textContent = l.flag;
+    document.getElementById('c-lang-name').textContent = l.name.split(' ')[0];
+
+    // Dynamically translate Screen Text
+    if(document.getElementById('welcome-title')) document.getElementById('welcome-title').innerHTML = t.welcomeTitle;
+    if(document.getElementById('welcome-sub')) document.getElementById('welcome-sub').innerHTML = t.welcomeSub;
+    if(document.getElementById('card-checkin-title')) document.getElementById('card-checkin-title').innerHTML = t.checkinTitle;
+    if(document.getElementById('card-checkin-desc')) document.getElementById('card-checkin-desc').innerHTML = t.checkinDesc;
+    if(document.getElementById('feat-dining')) document.getElementById('feat-dining').innerHTML = t.dining;
+    if(document.getElementById('feat-spa')) document.getElementById('feat-spa').innerHTML = t.spa;
+    if(document.getElementById('feat-services')) document.getElementById('feat-services').innerHTML = t.services;
+    if(document.getElementById('feat-exp')) document.getElementById('feat-exp').innerHTML = t.exp;
+    if(document.getElementById('tagline-text')) document.getElementById('tagline-text').innerHTML = t.tagline;
+    if(document.getElementById('tagline-thanks')) document.getElementById('tagline-thanks').innerHTML = t.thanks;
+}
+
+// ─── COUNTRY SELECTION ──────────────────────────────────
+function selectCountry(idx) {
+    selCountryIdx = idx;
+    updateCountryUI();
+    buildCountryList();
+    closeModal('modal-country');
+}
+
+function updateCountryUI() {
+    const c = COUNTRIES[selCountryIdx];
+    document.getElementById('sel-flag').textContent = c.flag;
+    document.getElementById('sel-code').textContent = c.dial;
+}
+
+// ─── NAVIGATION ──────────────────────────────────────────
+function navigate(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
+    // scroll to top
+    document.getElementById(screenId).scrollTop = 0;
+}
+
+// ─── MODALS ──────────────────────────────────────────────
+function openModal(id) {
+    document.getElementById(id).classList.add('show');
+}
+function closeModal(id) {
+    document.getElementById(id).classList.remove('show');
+}
+function overlayClose(e, id) {
+    if (e.target.id === id) closeModal(id);
+}
+
+// ─── OTP FLOW ────────────────────────────────────────────
+function doSendOtp() {
+    const ph = document.getElementById('phone-input').value.trim();
+    if (!ph || ph.length < 6) {
+        alert('Please enter a valid phone number.');
+        return;
+    }
+    const c = COUNTRIES[selCountryIdx];
+    document.getElementById('otp-phone-display').textContent = c.flag + ' ' + c.dial + ' ' + ph;
+    document.getElementById('step-phone').style.display = 'none';
+    document.getElementById('step-otp').style.display  = 'block';
+}
+
+function showPhoneStep() {
+    document.getElementById('step-phone').style.display = 'block';
+    document.getElementById('step-otp').style.display  = 'none';
+}
+
+function doVerifyOtp() {
+    const otp = ['otp1','otp2','otp3','otp4','otp5','otp6']
+                    .map(id => document.getElementById(id).value).join('');
+    if (otp.length < 6) { alert('Please enter the 6-digit code.'); return; }
+    navigate('screen-dashboard');
+    // reset for next time
+    showPhoneStep();
+}
+
+// ─── OTP BOX AUTO-ADVANCE ────────────────────────────────
+document.querySelectorAll('.otp-box').forEach((box, i, boxes) => {
+    box.addEventListener('input', () => {
+        if (box.value && i < boxes.length - 1) boxes[i+1].focus();
+    });
+    box.addEventListener('keydown', e => {
+        if (e.key === 'Backspace' && !box.value && i > 0) boxes[i-1].focus();
+    });
+});
+</script>
+</body>
+</html>
