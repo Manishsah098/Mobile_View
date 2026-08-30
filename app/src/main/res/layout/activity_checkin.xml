@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/checkInRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_navy">
+
+    <!-- Background Resort Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/atlantis_background"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Dark Gradient Overlay -->
+    <View
+        android:id="@+id/backgroundOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_overlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Top Navigation Bar (Back + Language) -->
+    <LinearLayout
+        android:id="@+id/topBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:paddingStart="@dimen/spacing_lg"
+        android:paddingEnd="@dimen/spacing_lg"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Back Button -->
+        <FrameLayout
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/chip_gold_bg"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back"
+                app:tint="@color/white"
+                android:contentDescription="Back" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Language Selector -->
+        <LinearLayout
+            android:id="@+id/checkInLanguageLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:padding="6dp"
+            android:background="@drawable/country_code_bg"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_language"
+                android:textColor="@color/text_secondary"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/current_language"
+                android:textColor="@color/bright_gold"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Vertically Scrollable Container -->
+    <ScrollView
+        android:id="@+id/checkInScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/topBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingStart="@dimen/spacing_lg"
+            android:paddingEnd="@dimen/spacing_lg"
+            android:paddingTop="12dp"
+            android:paddingBottom="32dp">
+
+            <!-- Atlantis Brand Logo (Bolder & Prominent) -->
+            <ImageView
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/atlantis_logo"
+                android:contentDescription="@string/brand_atlantis" />
+
+            <!-- Title & Subtitle -->
+            <TextView
+                android:id="@+id/checkInHeadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/checkin_heading"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/checkInSubtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/checkin_subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <!-- STEP 1: Phone Input Card (Glassmorphic) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPhoneInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/glass_dark_bg"
+                app:cardCornerRadius="@dimen/radius_lg"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_lg"
+                    android:background="@drawable/card_dark_bg">
+
+                    <!-- Phone Icon Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/circle_gold_bg">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_phone"
+                                app:tint="@color/dark_navy"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/verifyMobileTitleText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/verify_mobile_title"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/verify_mobile_desc"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Mobile Number Input Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/label_mobile_number"
+                        android:textColor="@color/bright_gold"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <!-- Phone Input Row (Country Code + Number Field) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Country Code Badge (Clickable Selector) -->
+                        <TextView
+                            android:id="@+id/countryCodeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/input_height"
+                            android:gravity="center"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:text="🇦🇪 +971 ▼"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@drawable/country_code_bg" />
+
+                        <!-- Number Input Field -->
+                        <EditText
+                            android:id="@+id/phoneEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/input_height"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/input_field_bg"
+                            android:hint="@string/hint_mobile_number"
+                            android:textColorHint="@color/text_tertiary"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:inputType="phone"
+                            android:maxLines="1"
+                            android:text="501234567"
+                            android:importantForAutofill="no" />
+                    </LinearLayout>
+
+                    <!-- Error Text -->
+                    <TextView
+                        android:id="@+id/phoneErrorTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/error_red"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <!-- WhatsApp Info Banner Box -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        android:background="@drawable/whatsapp_box_bg">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_whatsapp"
+                            android:contentDescription="@null" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/whatsapp_box_title"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/whatsapp_box_subtitle"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Send Code Gold Button -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSendOtp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/gold_button_bg"
+                        android:text="@string/btn_send_code_whatsapp"
+                        android:textColor="@color/dark_navy"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- STEP 2: OTP Verification Card (Visible after OTP sent) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardOtpVerification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/glass_dark_bg"
+                app:cardCornerRadius="@dimen/radius_lg"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_lg"
+                    android:background="@drawable/card_dark_bg">
+
+                    <!-- Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/circle_gold_bg">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_key"
+                                app:tint="@color/dark_navy"
+                                android:contentDescription="@null" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/otp_title"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/otp_subtitle"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Destination Phone display & Change link -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/otpPhoneDisplayTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            tools:text="+971 501234567" />
+
+                        <TextView
+                            android:id="@+id/btnChangeNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_change_number"
+                            android:textColor="@color/luxury_gold"
+                            android:textSize="12sp"
+                            android:clickable="true"
+                            android:focusable="true" />
+                    </LinearLayout>
+
+                    <!-- 6-digit OTP Input Fields -->
+                    <LinearLayout
+                        android:id="@+id/otpContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/otpDigit1"
+                            android:layout_width="@dimen/otp_box_size"
+                            android:layout_height="@dimen/otp_box_size"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/otp_box_selector"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:importantForAutofill="no" />
+
+                        <EditText
+                            android:id="@+id/otpDigit2"
+                            android:layout_width="@dimen/otp_box_size"
+                            android:layout_height="@dimen/otp_box_size"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/otp_box_selector"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:importantForAutofill="no" />
+
+                        <EditText
+                            android:id="@+id/otpDigit3"
+                            android:layout_width="@dimen/otp_box_size"
+                            android:layout_height="@dimen/otp_box_size"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/otp_box_selector"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:importantForAutofill="no" />
+
+                        <EditText
+                            android:id="@+id/otpDigit4"
+                            android:layout_width="@dimen/otp_box_size"
+                            android:layout_height="@dimen/otp_box_size"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/otp_box_selector"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:importantForAutofill="no" />
+
+                        <EditText
+                            android:id="@+id/otpDigit5"
+                            android:layout_width="@dimen/otp_box_size"
+                            android:layout_height="@dimen/otp_box_size"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/otp_box_selector"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:importantForAutofill="no" />
+
+                        <EditText
+                            android:id="@+id/otpDigit6"
+                            android:layout_width="@dimen/otp_box_size"
+                            android:layout_height="@dimen/otp_box_size"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/otp_box_selector"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/bright_gold"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:importantForAutofill="no" />
+                    </LinearLayout>
+
+                    <!-- OTP Error Text -->
+                    <TextView
+                        android:id="@+id/otpErrorTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/error_red"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <!-- Resend Code Timer -->
+                    <TextView
+                        android:id="@+id/resendCodeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/btn_resend_now"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Verify Code Gold Button -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnVerifyOtp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/gold_button_bg"
+                        android:text="@string/btn_verify_code"
+                        android:textColor="@color/dark_navy"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Loading Indicator Overlay View -->
+            <LinearLayout
+                android:id="@+id/loadingLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:indeterminateTint="@color/bright_gold" />
+
+                <TextView
+                    android:id="@+id/loadingStatusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/fetching_profile"
+                    android:textColor="@color/bright_gold"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

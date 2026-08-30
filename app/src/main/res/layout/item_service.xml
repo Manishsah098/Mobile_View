@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/glass_card_surface"
+    app:cardCornerRadius="@dimen/radius_md"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:id="@+id/serviceItemContainer"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="@drawable/service_card_bg">
+
+        <!-- Gold Icon Frame -->
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/chip_gold_bg">
+
+            <ImageView
+                android:id="@+id/serviceIconImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_dining"
+                app:tint="@color/bright_gold"
+                android:contentDescription="@null" />
+        </FrameLayout>
+
+        <!-- Service Title -->
+        <TextView
+            android:id="@+id/serviceTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:text="Order Food" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

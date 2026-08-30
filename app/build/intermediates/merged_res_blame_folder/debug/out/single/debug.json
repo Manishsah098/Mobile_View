@@ -1,0 +1,250 @@
+[
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_check.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_profile.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_profile.xml"
+    },
+    {
+        "merged": "com.example.atlantis.app-merged_res-32:/drawable_atlantis_icon_clean.png.flat",
+        "source": "com.example.atlantis.app-main-34:/drawable/atlantis_icon_clean.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_otp_box_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\otp_box_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_notifications.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_item_chat_message.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\item_chat_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_whatsapp_box_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\whatsapp_box_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_wifi.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_wifi.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ai_card_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ai_card_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_guest_avatar.jpg.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\guest_avatar.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_arrow_right.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_arrow_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_chat_bubble_user_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\chat_bubble_user_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_services.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_services.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_input_field_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\input_field_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_home.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_transport.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_transport.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_card_glass_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\card_glass_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_calendar.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_dialog_service_action.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\dialog_service_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_housekeeping.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_housekeeping.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_service_card_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\service_card_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_card_dark_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\card_dark_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_phone.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_phone.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_activity_ai_chat.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\activity_ai_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable-nodpi_atlantis_background.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable-nodpi\\atlantis_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_chat_bubble_ai_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\chat_bubble_ai_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_activity_guest_dashboard.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\activity_guest_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_requests.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_requests.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_gold_outline_button_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\gold_outline_button_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_close.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_gold_button_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\gold_button_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_whatsapp.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_whatsapp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_ai.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_ai.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_circle_gold_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\circle_gold_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_badge_notification_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\badge_notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_atlantis_logo.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\atlantis_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_spa.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_spa.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_background_overlay.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\background_overlay.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_activity_welcome.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_star.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_star.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_orders.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_orders.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_chip_gold_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\chip_gold_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_circle_avatar_border.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\circle_avatar_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_otp_box_selector.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\otp_box_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_experience.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_experience.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_item_service.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\item_service.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_key.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_key.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_dining.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_dining.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_explore.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_explore.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_dialog_dark_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\dialog_dark_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_send.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_send.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_bell.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_bell.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_ai_assistant.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_ai_assistant.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\layout_activity_checkin.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\layout\\activity_checkin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_special_offer_card_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\special_offer_card_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_country_code_bg.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\country_code_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\color_bottom_nav_color_selector.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\color\\bottom_nav_color_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_atlantis_background.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\atlantis_background.png"
+    },
+    {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\menu\\bottom_nav_menu.xml"
+    }
+]

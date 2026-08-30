@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Primary & Background Colors -->
+    <color name="dark_navy">#06121C</color>
+    <color name="deep_blue">#09243A</color>
+    <color name="luxury_gold">#D9A441</color>
+    <color name="bright_gold">#F5B82E</color>
+    <color name="gold_light">#FFE194</color>
+    <color name="gold_dark">#996E1D</color>
+
+    <!-- Base Neutrals -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#C7CDD3</color>
+    <color name="text_tertiary">#8A9BA8</color>
+    <color name="text_gold">#F5B82E</color>
+
+    <!-- Accent & Feature Colors -->
+    <color name="whatsapp_green">#25D366</color>
+    <color name="whatsapp_green_dark">#1EBE5D</color>
+    <color name="ai_purple">#8B3DFF</color>
+    <color name="ai_purple_light">#A96EFF</color>
+    <color name="badge_red">#FF3B30</color>
+    <color name="promo_badge_orange">#FF8800</color>
+    <color name="success_green">#34C759</color>
+    <color name="error_red">#FF453A</color>
+
+    <!-- Glass & Card Overlays -->
+    <color name="glass_dark_bg">#D90A1A2A</color>
+    <color name="glass_dark_bg_semi">#B306121C</color>
+    <color name="glass_card_surface">#800D2235</color>
+    <color name="glass_card_stroke">#33D9A441</color>
+    <color name="glass_card_stroke_bright">#66F5B82E</color>
+    <color name="overlay_dark">#9906121C</color>
+    <color name="overlay_dark_heavy">#E606121C</color>
+    <color name="gold_ripple">#33D9A441</color>
+    <color name="input_bg">#40000000</color>
+    <color name="input_border">#4DF5B82E</color>
+    <color name="nav_bar_bg">#F206121C</color>
+</resources>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ai_purple">#8B3DFF</color>
+    <color name="ai_purple_light">#A96EFF</color>
+    <color name="badge_red">#FF3B30</color>
+    <color name="black">#000000</color>
+    <color name="bright_gold">#F5B82E</color>
+    <color name="dark_navy">#06121C</color>
+    <color name="deep_blue">#09243A</color>
+    <color name="error_red">#FF453A</color>
+    <color name="glass_card_stroke">#33D9A441</color>
+    <color name="glass_card_stroke_bright">#66F5B82E</color>
+    <color name="glass_card_surface">#800D2235</color>
+    <color name="glass_dark_bg">#D90A1A2A</color>
+    <color name="glass_dark_bg_semi">#B306121C</color>
+    <color name="gold_dark">#996E1D</color>
+    <color name="gold_light">#FFE194</color>
+    <color name="gold_ripple">#33D9A441</color>
+    <color name="input_bg">#40000000</color>
+    <color name="input_border">#4DF5B82E</color>
+    <color name="luxury_gold">#D9A441</color>
+    <color name="nav_bar_bg">#F206121C</color>
+    <color name="overlay_dark">#9906121C</color>
+    <color name="overlay_dark_heavy">#E606121C</color>
+    <color name="promo_badge_orange">#FF8800</color>
+    <color name="success_green">#34C759</color>
+    <color name="text_gold">#F5B82E</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#C7CDD3</color>
+    <color name="text_tertiary">#8A9BA8</color>
+    <color name="whatsapp_green">#25D366</color>
+    <color name="whatsapp_green_dark">#1EBE5D</color>
+    <color name="white">#FFFFFF</color>
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="input_height">52dp</dimen>
+    <dimen name="nav_icon_size">24dp</dimen>
+    <dimen name="otp_box_size">46dp</dimen>
+    <dimen name="radius_lg">22dp</dimen>
+    <dimen name="radius_md">16dp</dimen>
+    <dimen name="radius_pill">100dp</dimen>
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_xl">28dp</dimen>
+    <dimen name="service_icon_size">32dp</dimen>
+    <dimen name="spacing_lg">20dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_sm">12dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xs">8dp</dimen>
+    <dimen name="spacing_xxl">32dp</dimen>
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="text_hero">32sp</dimen>
+    <dimen name="text_lg">17sp</dimen>
+    <dimen name="text_md">15sp</dimen>
+    <dimen name="text_sm">13sp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+    <dimen name="text_xs">11sp</dimen>
+    <dimen name="text_xxl">26sp</dimen>
+    <string name="ai_card_subtitle">Your personal hotel assistant.</string>
+    <string name="ai_card_text">Ask anything or make a request.</string>
+    <string name="ai_card_title">Ask Atlantis The Royal AI</string>
+    <string name="ai_chat_online">Online • Ultra-luxury Assistant</string>
+    <string name="ai_chat_title">Atlantis AI Concierge</string>
+    <string name="ai_hint_input">Ask anything (e.g. spa menu, in-room dining...)</string>
+    <string name="ai_welcome_message">Hello Mr. Aman Singh! I am your AI Royal Concierge. How may I elevate your stay today?</string>
+    <string name="app_name">Atlantis The Royal – Guest Experience</string>
+    <string name="brand_atlantis">ATLANTIS</string>
+    <string name="brand_dubai">DUBAI</string>
+    <string name="brand_the_royal">THE ROYAL</string>
+    <string name="btn_ask_now">Ask Now</string>
+    <string name="btn_change_number">Change Number</string>
+    <string name="btn_order_now">Order Now</string>
+    <string name="btn_resend_code">Resend Code in %1$ds</string>
+    <string name="btn_resend_now">Resend Code</string>
+    <string name="btn_send_code_whatsapp">Send Code on WhatsApp</string>
+    <string name="btn_verify_code">Verify Code</string>
+    <string name="checkin_card_desc">Already have a booking?\nCheck-in and access your stay.</string>
+    <string name="checkin_heading">Check-in</string>
+    <string name="checkin_subtitle">Let\'s get you checked in</string>
+    <string name="checkin_title">Check-in</string>
+    <string name="country_code_uae">🇦🇪 +971</string>
+    <string name="current_language">English ▼</string>
+    <string name="error_empty_otp">Please enter the 6-digit verification code</string>
+    <string name="error_empty_phone">Please enter your mobile number</string>
+    <string name="error_invalid_otp">Invalid verification code. Please try again.</string>
+    <string name="error_invalid_phone">Please enter a valid mobile number</string>
+    <string name="error_network">Unable to connect. Please try again.</string>
+    <string name="error_session_expired">Your session has expired. Please check in again.</string>
+    <string name="feature_dining">Delicious\nDining</string>
+    <string name="feature_experiences">Memorable\nExperiences</string>
+    <string name="feature_services">World Class\nServices</string>
+    <string name="feature_spa">Spa &amp;\nWellness</string>
+    <string name="fetching_profile">Fetching guest details...</string>
+    <string name="greeting_delight">Welcome to Atlantis The Royal. We\'re delighted to have you with us.</string>
+    <string name="greeting_welcome">Welcome,</string>
+    <string name="hint_mobile_number">Enter your mobile number</string>
+    <string name="label_booking_id">Booking ID</string>
+    <string name="label_checkin_date">Check-in</string>
+    <string name="label_checkout_date">Check-out</string>
+    <string name="label_mobile_number">Mobile Number</string>
+    <string name="label_room">Room</string>
+    <string name="nav_ai">AI Concierge</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_orders">Orders</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_requests">Requests</string>
+    <string name="otp_hint_demo">Demo Code: 123456</string>
+    <string name="otp_subtitle">We sent a verification code to your WhatsApp number.</string>
+    <string name="otp_title">Verify OTP</string>
+    <string name="section_explore_services">Explore Services</string>
+    <string name="select_language">Select Language</string>
+    <string name="service_explore_atlantis">Explore Atlantis</string>
+    <string name="service_hotel_services">Hotel Services</string>
+    <string name="service_housekeeping">Housekeeping</string>
+    <string name="service_order_food">Order Food</string>
+    <string name="service_rate_us">Rate Us</string>
+    <string name="service_spa_wellness">Spa &amp; Wellness</string>
+    <string name="service_transport">Transport</string>
+    <string name="service_wifi">WiFi</string>
+    <string name="special_badge">TODAY\'S SPECIAL</string>
+    <string name="special_discount">20% OFF</string>
+    <string name="special_title">On Lunch &amp; Dinner</string>
+    <string name="special_validity">Valid till 11:00 PM</string>
+    <string name="tagline_stay">We\'re here to make your stay exceptional.</string>
+    <string name="tagline_thanks">Thank You!</string>
+    <string name="toast_language_set">Language set to</string>
+    <string name="verification_successful">Verification successful</string>
+    <string name="verify_mobile_desc">We will send a verification code to your WhatsApp to complete your check-in.</string>
+    <string name="verify_mobile_title">Verify Your Mobile Number</string>
+    <string name="welcome_heading">Welcome</string>
+    <string name="welcome_subtitle">Your luxury stay begins here</string>
+    <string name="whatsapp_box_subtitle">Make sure you have WhatsApp installed</string>
+    <string name="whatsapp_box_title">We\'ll send the code to your WhatsApp</string>
+    <style name="Theme.AtlantisTheRoyal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/luxury_gold</item>
+        <item name="colorPrimaryVariant">@color/bright_gold</item>
+        <item name="colorOnPrimary">@color/dark_navy</item>
+        
+        
+        <item name="colorSecondary">@color/bright_gold</item>
+        <item name="colorSecondaryVariant">@color/gold_light</item>
+        <item name="colorOnSecondary">@color/dark_navy</item>
+
+        
+        <item name="android:statusBarColor">@color/dark_navy</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/dark_navy</item>
+        <item name="android:windowBackground">@color/dark_navy</item>
+
+        
+        <item name="cardViewStyle">@style/Widget.Atlantis.CardView</item>
+        <item name="bottomNavigationStyle">@style/Widget.Atlantis.BottomNavigationView</item>
+    </style>
+    <style name="Widget.Atlantis.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_nav_color_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_color_selector</item>
+        <item name="backgroundTint">@color/nav_bar_bg</item>
+        <item name="itemRippleColor">@color/gold_ripple</item>
+        <item name="elevation">12dp</item>
+    </style>
+    <style name="Widget.Atlantis.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardElevation">6dp</item>
+        <item name="cardBackgroundColor">@color/glass_card_surface</item>
+        <item name="strokeColor">@color/glass_card_stroke</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+</resources>
