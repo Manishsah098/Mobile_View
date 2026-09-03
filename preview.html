@@ -1797,8 +1797,8 @@
                 alert('Invalid OTP code. Please check your WhatsApp message.');
                 return;
             }
-            navigate('screen-dashboard');
-            showPhoneStep();
+            // Redirect to the full dashboard page after successful login
+            window.location.href = 'dashboard.html';
         }
 
         // ─── OTP BOX AUTO-ADVANCE & PASTE ────────────────────────
