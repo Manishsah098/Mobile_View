@@ -729,6 +729,126 @@
             margin-top: 10px;
         }
 
+        /* ─── Logout Button ─── */
+        .logout-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(220, 38, 38, 0.35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .logout-btn:hover {
+            background: rgba(220, 38, 38, 0.35);
+            border-color: rgba(220, 38, 38, 0.7);
+            transform: scale(1.08);
+            box-shadow: 0 0 14px rgba(220, 38, 38, 0.4);
+        }
+
+        .logout-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: #f87171;
+        }
+
+        /* ─── Logout Confirmation Modal ─── */
+        .logout-modal-card {
+            background: #0d1a2a;
+            border-top: 1.5px solid #dc2626;
+            border-radius: 24px 24px 0 0;
+            padding: 28px 22px 34px;
+            text-align: center;
+        }
+
+        .logout-icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.15);
+            border: 1.5px solid rgba(220, 38, 38, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 16px;
+        }
+
+        .logout-icon-circle svg {
+            width: 30px;
+            height: 30px;
+            fill: #f87171;
+        }
+
+        .logout-modal-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .logout-modal-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .logout-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-cancel {
+            flex: 1;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-logout-confirm {
+            flex: 1;
+            height: 48px;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border: none;
+            border-radius: 14px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.35);
+            transition: all 0.2s;
+        }
+
+        .btn-logout-confirm:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.5);
+        }
+
+        .btn-logout-confirm svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
         /* AI Chat Box inside modal */
         .chat-box {
             display: flex;
@@ -816,6 +936,12 @@
                         <div class="user-avatar-wrap" onclick="openProfileRegisterModal()">
                             <img id="ui-avatar-img" src="app/src/main/res/drawable/guest_avatar.jpg"
                                 class="user-avatar-img" alt="Guest">
+                        </div>
+                        <!-- Logout Button -->
+                        <div class="logout-btn" id="logout-btn" onclick="openLogoutModal()" title="Logout">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -1140,6 +1266,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal 4: Logout Confirmation -->
+        <div class="modal-backdrop" id="modal-logout">
+            <div class="logout-modal-card">
+                <div class="logout-icon-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                    </svg>
+                </div>
+                <div class="logout-modal-title">Sign Out?</div>
+                <div class="logout-modal-desc">You are about to sign out of your Atlantis guest session. Any unsaved preferences may be lost.</div>
+                <div class="logout-actions">
+                    <button class="btn-cancel" onclick="closeModal('modal-logout')">Stay</button>
+                    <button class="btn-logout-confirm" onclick="confirmLogout()">
+                        <svg viewBox="0 0 24 24"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1298,6 +1444,20 @@
         function openOrdersListModal() {
             alert("Active Orders: #8921 Gourmet Steak (20% OFF) on the way!");
         }
+        function openLogoutModal() {
+            document.getElementById('modal-logout').classList.add('active');
+        }
+        function confirmLogout() {
+            // Clear session data
+            localStorage.removeItem('atlantis_guest');
+            sessionStorage.clear();
+            // Redirect to login page (adjust path as needed)
+            const loginPage = 'login.html';
+            closeModal('modal-logout');
+            setTimeout(() => {
+                window.location.href = loginPage;
+            }, 300);
+        }
         function closeModal(id) {
             document.getElementById(id).classList.remove('active');
         }
@@ -1313,4 +1473,3 @@
 </body>
 
 </html>
-preview.html
