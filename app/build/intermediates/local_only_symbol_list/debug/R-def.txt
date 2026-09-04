@@ -57,6 +57,7 @@ dimen text_xl
 dimen text_xs
 dimen text_xxl
 drawable ai_card_bg
+drawable app
 drawable atlantis_background
 drawable atlantis_icon_clean
 drawable atlantis_logo
@@ -86,6 +87,7 @@ drawable ic_experience
 drawable ic_explore
 drawable ic_housekeeping
 drawable ic_key
+drawable ic_logout
 drawable ic_nav_ai
 drawable ic_nav_home
 drawable ic_nav_orders
@@ -105,6 +107,7 @@ drawable otp_box_bg
 drawable otp_box_selector
 drawable service_card_bg
 drawable special_offer_card_bg
+drawable steak_dish
 drawable whatsapp_box_bg
 id aiMessageContainer
 id aiMessageTextView
@@ -136,9 +139,13 @@ id chatRecyclerView
 id chatTopBar
 id checkInCard
 id checkInDateTextView
+id checkInDescText
+id checkInHeadingText
 id checkInLanguageLayout
 id checkInRootLayout
 id checkInScrollView
+id checkInSubtitleText
+id checkInTitleText
 id chipButler
 id chipInRoomDining
 id chipPoolCabana
@@ -160,6 +167,7 @@ id languageSelectorLayout
 id languageTextView
 id loadingLayout
 id loadingStatusTextView
+id logoutLayout
 id nav_ai
 id nav_home
 id nav_orders
@@ -189,11 +197,20 @@ id serviceItemContainer
 id serviceTitleTextView
 id servicesRecyclerView
 id topBarLayout
+id tvDining
+id tvExperiences
+id tvServices
+id tvSpa
+id tvTaglineStay
+id tvTaglineThanks
 id userMessageContainer
 id userMessageTextView
 id userTimeTextView
+id verifyMobileTitleText
+id welcomeHeading
 id welcomeMessageTextView
 id welcomeRootLayout
+id welcomeSubtitle
 layout activity_ai_chat
 layout activity_checkin
 layout activity_guest_dashboard

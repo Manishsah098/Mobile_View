@@ -119,17 +119,19 @@
 
             <!-- Welcome Heading (Gold) -->
             <TextView
+                android:id="@+id/welcomeHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/welcome_heading"
                 android:textColor="@color/bright_gold"
-                android:textSize="42sp"
+                android:textSize="44sp"
                 android:textStyle="bold"
                 android:fontFamily="serif" />
 
             <!-- Subtitle -->
             <TextView
+                android:id="@+id/welcomeSubtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -182,6 +184,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/checkInTitleText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/checkin_title"
@@ -190,6 +193,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/checkInDescText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
@@ -248,6 +252,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/tvDining"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -283,6 +288,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/tvSpa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -318,6 +324,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/tvServices"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -353,6 +360,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/tvExperiences"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
@@ -367,6 +375,7 @@
 
             <!-- Bottom Taglines -->
             <TextView
+                android:id="@+id/tvTaglineStay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -376,6 +385,7 @@
                 android:textAlignment="center" />
 
             <TextView
+                android:id="@+id/tvTaglineThanks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"

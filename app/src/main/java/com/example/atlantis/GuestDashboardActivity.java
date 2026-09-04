@@ -38,6 +38,7 @@ public class GuestDashboardActivity extends AppCompatActivity {
     private CardView cardAiAssistant;
     private FrameLayout notificationLayout;
     private CardView profileAvatarCard;
+    private FrameLayout logoutLayout;
 
     private SessionManager sessionManager;
     private Guest currentGuest;
@@ -67,6 +68,7 @@ public class GuestDashboardActivity extends AppCompatActivity {
         cardAiAssistant = findViewById(R.id.cardAiAssistant);
         notificationLayout = findViewById(R.id.notificationLayout);
         profileAvatarCard = findViewById(R.id.profileAvatarCard);
+        logoutLayout = findViewById(R.id.logoutLayout);
     }
 
     private void loadGuestData() {
@@ -162,6 +164,16 @@ public class GuestDashboardActivity extends AppCompatActivity {
                 showProfileDialog();
             }
         });
+
+        // Quick Logout Button
+        if (logoutLayout != null) {
+            logoutLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    confirmLogout();
+                }
+            });
+        }
 
         // Bottom Navigation
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
@@ -299,14 +311,32 @@ public class GuestDashboardActivity extends AppCompatActivity {
             .setNegativeButton("Log Out", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    sessionManager.clearSession();
-                    Toast.makeText(GuestDashboardActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(GuestDashboardActivity.this, WelcomeActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+                    performLogout();
                 }
             })
             .show();
+    }
+
+    private void confirmLogout() {
+        new AlertDialog.Builder(this)
+            .setTitle("Sign Out")
+            .setMessage("Are you sure you want to log out of your Atlantis guest session?")
+            .setPositiveButton("Sign Out", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    performLogout();
+                }
+            })
+            .setNegativeButton("Cancel", null)
+            .show();
+    }
+
+    private void performLogout() {
+        sessionManager.clearSession();
+        Toast.makeText(GuestDashboardActivity.this, "Logged out successfully", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(GuestDashboardActivity.this, WelcomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }

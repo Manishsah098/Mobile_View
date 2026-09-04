@@ -1,15 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_steak_dish.jpg.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\steak_dish.jpg"
+    },
+    {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_check.xml.flat",
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_check.xml"
     },
     {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_profile.xml.flat",
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_profile.xml"
-    },
-    {
-        "merged": "com.example.atlantis.app-merged_res-32:/drawable_atlantis_icon_clean.png.flat",
-        "source": "com.example.atlantis.app-main-34:/drawable/atlantis_icon_clean.png"
     },
     {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_otp_box_bg.xml.flat",
@@ -136,6 +136,10 @@
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_whatsapp.xml"
     },
     {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_app.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\app.png"
+    },
+    {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_nav_ai.xml.flat",
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_nav_ai.xml"
     },
@@ -204,6 +208,10 @@
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_dining.xml"
     },
     {
+        "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_atlantis_icon_clean.png.flat",
+        "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\atlantis_icon_clean.png"
+    },
+    {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\drawable_ic_explore.xml.flat",
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\ic_explore.xml"
     },
@@ -236,6 +244,10 @@
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\drawable\\country_code_bg.xml"
     },
     {
+        "merged": "com.example.atlantis.app-merged_res-32:/drawable_ic_logout.xml.flat",
+        "source": "com.example.atlantis.app-main-34:/drawable/ic_logout.xml"
+    },
+    {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\color_bottom_nav_color_selector.xml.flat",
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\color\\bottom_nav_color_selector.xml"
     },
@@ -246,5 +258,9 @@
     {
         "merged": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-merged_res-32:\\menu_bottom_nav_menu.xml.flat",
         "source": "C:\\Users\\Lenovo\\.gradle\\daemon\\8.2\\com.example.atlantis.app-main-34:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.example.atlantis.app-merged_res-32:/layout_activity_guest_dashboard.xml.flat",
+        "source": "com.example.atlantis.app-main-34:/layout/activity_guest_dashboard.xml"
     }
 ]

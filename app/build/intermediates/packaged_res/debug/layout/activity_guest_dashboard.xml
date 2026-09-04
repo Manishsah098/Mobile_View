@@ -146,6 +146,25 @@
                     android:src="@drawable/guest_avatar"
                     android:contentDescription="Guest Profile" />
             </androidx.cardview.widget.CardView>
+
+            <!-- Quick Logout Button -->
+            <FrameLayout
+                android:id="@+id/logoutLayout"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/country_code_bg"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_logout"
+                    app:tint="#F87171"
+                    android:contentDescription="Logout" />
+            </FrameLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

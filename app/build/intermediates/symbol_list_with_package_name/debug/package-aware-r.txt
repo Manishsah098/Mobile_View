@@ -3021,6 +3021,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable ai_card_bg
+drawable app
 drawable atlantis_background
 drawable atlantis_icon_clean
 drawable atlantis_logo
@@ -3069,6 +3070,7 @@ drawable ic_explore
 drawable ic_housekeeping
 drawable ic_key
 drawable ic_keyboard_black_24dp
+drawable ic_logout
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
@@ -3167,6 +3169,7 @@ drawable otp_box_bg
 drawable otp_box_selector
 drawable service_card_bg
 drawable special_offer_card_bg
+drawable steak_dish
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3312,9 +3315,13 @@ id chatRecyclerView
 id chatTopBar
 id checkInCard
 id checkInDateTextView
+id checkInDescText
+id checkInHeadingText
 id checkInLanguageLayout
 id checkInRootLayout
 id checkInScrollView
+id checkInSubtitleText
+id checkInTitleText
 id checkbox
 id checked
 id chipButler
@@ -3464,6 +3471,7 @@ id listMode
 id list_item
 id loadingLayout
 id loadingStatusTextView
+id logoutLayout
 id m3_side_sheet
 id marquee
 id masked
@@ -3727,6 +3735,12 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvDining
+id tvExperiences
+id tvServices
+id tvSpa
+id tvTaglineStay
+id tvTaglineThanks
 id unchecked
 id uniform
 id unlabeled
@@ -3735,6 +3749,7 @@ id useLogo
 id userMessageContainer
 id userMessageTextView
 id userTimeTextView
+id verifyMobileTitleText
 id vertical_only
 id view_offset_helper
 id view_transition
@@ -3744,8 +3759,10 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id welcomeHeading
 id welcomeMessageTextView
 id welcomeRootLayout
+id welcomeSubtitle
 id west
 id withText
 id with_icon
